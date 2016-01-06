@@ -1,11 +1,10 @@
 
-puts "Welcome to the Banking Program"
-puts "******************************"
-
+puts "Welcome to the Banking program!"
+puts "*******************************"
 
 accounts = []
-	
-2.times do 
+
+2.times do
 	print "Enter account holders First Name: "
 	first_name = gets.chomp
 
@@ -14,23 +13,52 @@ accounts = []
 
 	email = ""
 
-	until email.include?("@")
-		print 
+	until p email.include?("@") && email[-4..-1] == ".com"
+		print "Enter account holders email: "
+		email = gets.chomp
+	end
 
-	print "Enter account holders Email: "
-	email = gets.chomp
-
-	acct_num = (1000000000..9999999999)
+	acct_num = Array.new(10){rand(0..9)}.join("")
+	# adding the two .. between numbers inside of a parenthesis generates a numeber between them.
 
 	puts ""
-	puts "****************************"
+	puts "***************************"
 	puts ""
 
-	accounts << {first_name: first_name, last_name: last_name, email: email}
-
+	accounts << {first_name: first_name, 
+				 last_name: last_name,
+				 email: email,
+				 acct_num: acct_num
+				}
 end
 
-p accounts 
+puts ""
+puts "Thank you! Here is your report."
+puts ""
 
-# acct_num = Array.new(10){rand(0..9)}.join("")
-# ^^^ How to get a account number 
+puts "Report ".center.(50," ")
+puts Array.new(50){"*"}.join
+puts ""
+
+	puts "FIRST NAME: #{ account[:first_name] }"
+	puts ""
+
+	puts "LAST NAME: #{ account[:last_name] }"
+	puts ""
+
+	puts "EMAIL: #{ account [:email] }"
+	puts ""
+
+	puts "ACCT #{ account[acct_num]}"
+	puts ""
+
+accounts.each do |account|
+
+	puts ""
+	puts "***************************"
+	puts ""
+	
+end
+
+puts ""
+puts Array.new(50){"*"}.join
