@@ -4,13 +4,18 @@ puts "******************************"
 
 
 accounts = []
-
+	
 2.times do 
 	print "Enter account holders First Name: "
 	first_name = gets.chomp
 
 	print "Enter account holders Last Name: "
 	last_name = gets.chomp
+
+	email = ""
+
+	until email.include?("@")
+		print 
 
 	print "Enter account holders Email: "
 	email = gets.chomp
@@ -26,3 +31,6 @@ accounts = []
 end
 
 p accounts 
+
+# acct_num = Array.new(10){rand(0..9)}.join("")
+# ^^^ How to get a account number 
